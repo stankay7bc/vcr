@@ -1,0 +1,16 @@
+{
+  "short_name": "KR",
+  "name": "Klassik Radio",
+  "icons": [
+    {
+      "src":"/vcr/img/vcr.png",
+      "type":"image/png",
+      "sizes":"200x200"
+    }
+  ],
+  "start_url": "/vcr/",
+  "background_color": "#1e1e76",
+  "display": "standalone",
+  "scope": "/vcr/",
+  "theme_color": "#1e1e76"
+}
