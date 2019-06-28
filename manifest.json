@@ -9,8 +9,8 @@
     }
   ],
   "start_url": "/vcr/",
-  "background_color": "#1e1e76",
+  "background_color": "#082c45",
   "display": "standalone",
   "scope": "/vcr/",
-  "theme_color": "#1e1e76"
+  "theme_color": "#082c45"
 }

@@ -1,11 +1,14 @@
 html {
-  height:100%;
-  background:#1e1e76;
+  background:#082c45;
+}
 
+html,body {
+  height:100%;
 }
 
 main {
   display:flex;
   justify-content:center;
-  margin: 4em 0 0 0;
+  align-items:center;
+  height:75%;
 }
