@@ -32,13 +32,15 @@ class PlayButton extends HTMLElement {
   }
 
   attributeChangedCallback(name,oldVal,newVal) {
-    if(name=='src') this.reloadAudio(newVal); 
+    if(name=='src') {
+      this.reloadAudio(newVal); 
+      this.setUI();
+    }
   }
 
   reloadAudio(source) {
     this.audio.src = source;
     this.audio.load();
-    this.setUI();
   }
 
   constructor() {

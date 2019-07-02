@@ -1,9 +1,9 @@
 {
-  "short_name": "KR",
-  "name": "Klassik Radio",
+  "short_name": "IR",
+  "name": "Internet Radio",
   "icons": [
     {
-      "src":"/vcr/img/vcr.png",
+      "src":"https://docs.google.com/drawings/d/e/2PACX-1vRVXlS7Ph2RYCJzLuRewZHsNZmMQxmAq3vgl875VKuOmNhaDgu16ET2pTm5avUzPANTbodTFhVgCoM-/pub?w=200&h=200",
       "type":"image/png",
       "sizes":"200x200"
     }
