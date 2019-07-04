@@ -3,25 +3,49 @@
 const TEMPLATE = document.createElement('template');
 TEMPLATE.innerHTML = `
 <style>
+ .circle {
+  /*outline:1px dashed blue;*/
+  border:1px dashed blue;
+  border-radius:50%;
+  position:absolute;
+}
+.on {
+  background-color:green;
+}
+.off {
+  background-color:red;
+}
 main {
   position:relative;
-  height:180px;
-  width:180px;
+  width:312px;
+  height:312px;
   display:flex;
-  align-items:center;
   justify-content:center;
-  font-size:1.5em;
-  color:#4b4949;
-  background-color:#cfd2dd;
-  overflow:hidden;
 }
-img {
-  position:absolute;
-  left:0;
+#player {
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  z-index:1;
+}
+#jenre {
+  width:70%;
+  height:70%;
+  bottom:0;
+  z-index:2;
+}
+#play-light {
+  top:2%;
+  width:40%;
+  height:20%;
 }
 </style>
 <main>
-  <img src="https://docs.google.com/drawings/d/e/2PACX-1vQ8ms_-LjUiBscTtQ4FauJkP1RN68u1jUBclhxvkAm5XjW-tquKWUlejeSos8pYd6lu_2NEQs1Nj2ye/pub?w=360&amp;h=180">
+  <section id="player" class="circle">
+    <section id="play-light" class="circle off"></section>
+  </section>
+  <section id="jenre" class="circle"></section>
   <audio name="media"></audio>
 </main>`;
 
@@ -48,11 +72,11 @@ class PlayButton extends HTMLElement {
     const shadow = this.attachShadow({mode: 'open'});
     shadow.appendChild(TEMPLATE.content.cloneNode(true));
     
-    this.controls_ui = shadow.querySelector("img");
+    this.controls_ui = shadow.querySelector("#player");
+    this.switch_ui = shadow.querySelector("#play-light");
     this.audio = shadow.querySelector("audio");
     this.audio.src = this.getAttribute('src');
     
-    this.clickHandler();
     this.addEventListener("click",this.clickHandler);
   }
   
@@ -62,16 +86,18 @@ class PlayButton extends HTMLElement {
 
   setUI() {
     if(this.audio.paused) {
-      this.controls_ui.style.removeProperty('transform');
+      this.switch_ui.setAttribute("class","circle off");
     } else {
-      this.controls_ui.style
-        .setProperty('transform','translateX(-50%)');
+      this.switch_ui.setAttribute("class","circle on");
     }
   }
   
-  clickHandler() {
-    this.nextState();
-    this.setUI();
+  clickHandler(event) {
+    if(event.path[0].id=='player'||
+       event.path[0].id=='play-light') {
+      this.nextState();
+      this.setUI();
+    }
   }
 }
 
