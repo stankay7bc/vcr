@@ -9,12 +9,6 @@ TEMPLATE.innerHTML = `
   border-radius:50%;
   position:absolute;
 }
-.on {
-  background-color:green;
-}
-.off {
-  background-color:red;
-}
 main {
   position:relative;
   width:312px;
@@ -30,20 +24,35 @@ main {
   z-index:1;
 }
 #jenre {
-  width:70%;
-  height:70%;
-  bottom:0;
+  width:60%;
+  height:60%;
   z-index:2;
+  background-image: url("https://cdn1.iconfinder.com/data/icons/musical-instruments-line-art/128/violin-bow-play-ol-512.png");
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 #play-light {
-  top:2%;
-  width:40%;
-  height:20%;
+  position:absolute;
+  bottom:10%;
+}
+.triangle {
+  position:absolute;
+  width:0;
+  height:0;
+  border-top:1.25em solid transparent;
+  border-bottom:1.5em solid transparent;
+  border-left:2.5em solid #313199;
+}
+.rectangle {
+  width:2.5em;
+  height:2.5em;
+  background-color:#313199;
 }
 </style>
 <main>
   <section id="player" class="circle">
-    <section id="play-light" class="circle off"></section>
+    <section id="play-light" class="triangle"></section>
   </section>
   <section id="jenre" class="circle"></section>
   <audio name="media"></audio>
@@ -86,9 +95,9 @@ class PlayButton extends HTMLElement {
 
   setUI() {
     if(this.audio.paused) {
-      this.switch_ui.setAttribute("class","circle off");
+      this.switch_ui.setAttribute("class","triangle");
     } else {
-      this.switch_ui.setAttribute("class","circle on");
+      this.switch_ui.setAttribute("class","rectangle");
     }
   }
   

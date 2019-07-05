@@ -5,6 +5,17 @@ html,body {
 main {
   display:flex;
   justify-content:center;
-  align-items:center;
-  height:85%;
+  align-items:flex-end;
+  height:80%;
+}
+
+#help {
+  position:absolute;
+  right:1em;
+  border:1px solid grey;
+  border-radius:50%;
+  height:1.5em;
+  width:1.5em;
+  line-height:1.5em;
+  text-align:center;
 }
