@@ -5,7 +5,7 @@ TEMPLATE.innerHTML = `
 <style>
  .circle {
   /*outline:1px dashed blue;*/
-  border:1px dashed blue;
+  /*border:1px dashed blue;*/
   border-radius:50%;
   position:absolute;
 }
@@ -22,6 +22,7 @@ main {
   display:flex;
   justify-content:center;
   z-index:1;
+  background-color:#062456
 }
 #jenre {
   width:60%;
@@ -31,6 +32,7 @@ main {
   background-size: 65%;
   background-repeat: no-repeat;
   background-position: center;
+  background-color:#f9f9f9
 }
 #play-light {
   position:absolute;
@@ -42,12 +44,12 @@ main {
   height:0;
   border-top:1.25em solid transparent;
   border-bottom:1.5em solid transparent;
-  border-left:2.5em solid #313199;
+  border-left:2.5em solid #f9f9f9;
 }
 .rectangle {
   width:2.5em;
   height:2.5em;
-  background-color:#313199;
+  background-color:#f9f9f9;
 }
 </style>
 <main>
