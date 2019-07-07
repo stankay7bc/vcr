@@ -89,6 +89,12 @@ class PlayButton extends HTMLElement {
     this.audio.src = this.getAttribute('src');
     
     this.addEventListener("click",this.clickHandler);
+    this.audio.addEventListener("pause",event=>{
+      this.setUI();
+    });
+    this.audio.addEventListener("play",event=>{
+      this.setUI();
+    });
   }
   
   nextState() {
@@ -107,7 +113,6 @@ class PlayButton extends HTMLElement {
     if(event.path[0].id=='player'||
        event.path[0].id=='play-light') {
       this.nextState();
-      this.setUI();
     }
   }
 }
