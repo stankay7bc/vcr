@@ -9,10 +9,14 @@ TEMPLATE.innerHTML = `
   border-radius:50%;
   position:absolute;
 }
-main {
-  position:relative;
+:host {
   width:312px;
   height:312px;
+}
+main {
+  position:relative;
+  width:100%;
+  height:100%;
   display:flex;
   justify-content:center;
 }
@@ -35,26 +39,19 @@ main {
   background-color:#f9f9f9
 }
 #play-light {
+  /*outline:2px solid red;*/
   position:absolute;
-  bottom:10%;
-}
-.triangle {
-  position:absolute;
-  width:0;
-  height:0;
-  border-top:1.25em solid transparent;
-  border-bottom:1.5em solid transparent;
-  border-left:2.5em solid #f9f9f9;
-}
-.rectangle {
-  width:2.5em;
-  height:2.5em;
-  background-color:#f9f9f9;
+  background-image: url("https://docs.google.com/drawings/d/e/2PACX-1vQ8ms_-LjUiBscTtQ4FauJkP1RN68u1jUBclhxvkAm5XjW-tquKWUlejeSos8pYd6lu_2NEQs1Nj2ye/pub?w=360&h=180");
+  background-size: 200%;
+  background-repeat: no-repeat;
+  width:30%;
+  height:30%;
+  bottom:0;
 }
 </style>
 <main>
   <section id="player" class="circle">
-    <section id="play-light" class="triangle"></section>
+    <section id="play-light" class=""></section>
   </section>
   <section id="jenre" class="circle"></section>
   <audio name="media"></audio>
@@ -103,9 +100,11 @@ class PlayButton extends HTMLElement {
 
   setUI() {
     if(this.audio.paused) {
-      this.switch_ui.setAttribute("class","triangle");
+      this.switch_ui.style
+        .setProperty("background-position","left");
     } else {
-      this.switch_ui.setAttribute("class","rectangle");
+      this.switch_ui.style
+        .setProperty("background-position","right");
     }
   }
   
